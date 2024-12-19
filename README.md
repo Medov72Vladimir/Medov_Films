@@ -40,4 +40,4 @@ Minimum SDK -> 24
 Задание со звездочкой ⭐: сделайте верстку «резиновой», добейтесь того же эффекта, не задавая размеры контейнера (использовать margins)
 
 Готовый результат:
-![готовый проект](/drawable/result_image_module_19.PNG)
+![result_image_module_19.PNG](app%2Fsrc%2Fmain%2Fres%2Fdrawable%2Fresult_image_module_19.PNG)
