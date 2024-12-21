@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Medov_Films</string>
+    <string name="button1">Меню</string>
+    <string name="button2">Избранное</string>
+    <string name="button3">Посмотреть позже</string>
+    <string name="button4">Подборки</string>
+    <string name="button5">Настройки</string>
+    <string name="image_view">Poster</string>
 </resources>
