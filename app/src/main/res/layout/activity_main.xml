@@ -26,38 +26,49 @@
 
         <ImageView
             android:id="@+id/ImageView2"
-            android:scaleType="centerCrop"
-            android:layout_weight ="1"
-            android:contentDescription="@string/image_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/poster2"/>
+            android:layout_weight="1"
+            android:contentDescription="@string/image_view"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/poster2" />
 
         <ImageView
             android:id="@+id/ImageView3"
-            android:scaleType="centerCrop"
-            android:layout_weight ="1"
-            android:contentDescription="@string/image_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/poster3"/>
+            android:layout_weight="1"
+            android:contentDescription="@string/image_view"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/poster3" />
 
         <ImageView
             android:id="@+id/ImageView4"
-            android:scaleType="centerCrop"
-            android:layout_weight ="1"
-            android:contentDescription="@string/image_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/poster4"/>
+            android:layout_weight="1"
+            android:contentDescription="@string/image_view"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/poster4" />
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:text="@string/poster_web"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_conteiner" />
 
     <LinearLayout
         android:id="@+id/bar_button"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="@color/color_menu_2"
+        android:background="@drawable/comer_background"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/bottom_conteiner"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,31 +79,46 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button1" />
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="onClickToastButton"
+            android:text="@string/button1"
+            android:textAllCaps="true" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button2" />
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="onClickToastButton2"
+            android:text="@string/button2"
+            android:textAllCaps="true" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button3" />
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="onClickToastButton3"
+            android:text="@string/button3"
+            android:textAllCaps="true" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button4" />
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="onClickToastButton4"
+            android:text="@string/button4"
+            android:textAllCaps="true" />
 
         <Button
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button5"/>
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="onClickToastButton5"
+            android:text="@string/button5"
+            android:textAllCaps="true" />
 
     </LinearLayout>
 

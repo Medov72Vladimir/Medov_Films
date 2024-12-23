@@ -6,4 +6,5 @@
     <string name="button4">Подборки</string>
     <string name="button5">Настройки</string>
     <string name="image_view">Poster</string>
+    <string name="poster_web">Картинки взяты с pexels.com</string>
 </resources>
