@@ -29,7 +29,7 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/image_view"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/poster1" />
+                android:src="@drawable/poster1" />
 
             <ImageView
                 android:id="@+id/ImageView2"
