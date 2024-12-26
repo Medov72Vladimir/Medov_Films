@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/favorites"
+        android:icon="@drawable/favorite"
+        android:title="Избранное"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/watch_later"
+        android:icon="@drawable/watch_later"
+        android:title="Посмотреть позже"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/collections"
+        android:icon="@drawable/collections"
+        android:title="Подборки"
+        app:showAsAction="ifRoom"/>
+</menu>
