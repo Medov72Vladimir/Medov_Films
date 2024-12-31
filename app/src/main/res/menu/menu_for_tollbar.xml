@@ -2,8 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/nightlight"
+        android:title="@string/nightlight"
+        android:icon="@drawable/night_light"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/settings"
-        android:title="Настройки"
+        android:title="@string/settings"
         android:icon="@drawable/settings"
         app:showAsAction="ifRoom"/>
 </menu>

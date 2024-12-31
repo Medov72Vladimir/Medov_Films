@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">Medov_Films</string>
-    <string name="button1">Меню</string>
-    <string name="button2">Избранное</string>
-    <string name="button3">Посмотреть позже</string>
-    <string name="button4">Подборки</string>
-    <string name="button5">Настройки</string>
+    <string name="menu">Меню</string>
+    <string name="favorites">Избранное</string>
+    <string name="watch_later">Посмотреть позже</string>
+    <string name="collections">Подборки</string>
+    <string name="settings">Настройки</string>
     <string name="image_view">Poster</string>
-    <string name="poster_web">Картинки взяты с pexels.com</string>
+    <string name="nightlight">День/Ночь</string>
+    <string name="poster_web">Картинки получены с сайта  pexels.com</string>
 </resources>

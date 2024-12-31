@@ -4,16 +4,16 @@
     <item
         android:id="@+id/favorites"
         android:icon="@drawable/favorite"
-        android:title="Избранное"
-        app:showAsAction="ifRoom"/>
+        android:title="@string/favorites"
+        app:showAsAction="withText"/>
     <item
         android:id="@+id/watch_later"
         android:icon="@drawable/watch_later"
-        android:title="Посмотреть позже"
-        app:showAsAction="ifRoom"/>
+        android:title="@string/watch_later"
+        app:showAsAction="withText"/>
     <item
         android:id="@+id/collections"
         android:icon="@drawable/collections"
-        android:title="Подборки"
-        app:showAsAction="ifRoom"/>
+        android:title="@string/collections"
+        app:showAsAction="withText"/>
 </menu>
