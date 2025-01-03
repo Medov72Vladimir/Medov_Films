@@ -6,5 +6,7 @@
         <item name="colorPrimaryDark">@color/color_yellow</item>
         <item name="colorAccent">@color/color_orange</item>
     </style>
-    <style name="Theme.Medov_Films.Light" parent="Base.Theme.Medov_Films.Light"/>
+
+    <style name="Theme.Medov_Films.Light" parent="Base.Theme.Medov_Films.Light" />
+
 </resources>
