@@ -2,7 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="color_menu_top_bar">#46237A</color>
-    <color name="color_menu_2">#F49F0A</color>
-    <color name="color_menu_3">#00F2F2</color>
+    <color name="color_green_dark">#48E613</color>
+    <color name="color_grey_dark">#4A4A4A</color>
+    <color name="color_yellow">#F1DD0F</color>
+    <color name="color_orange">#F19C0F</color>
 </resources>
