@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/comer_main"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -84,7 +85,7 @@
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
         android:autoLink="web"
         android:linksClickable="true"
@@ -100,10 +101,34 @@
         android:columnCount="2"
         android:orientation="horizontal"
         android:useDefaultMargins="true"
-        app:layout_constraintTop_toBottomOf="@+id/text"
         app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text">
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:scaleType="center"
+            android:src="@drawable/poster5" />
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:scaleType="center"
+            android:src="@drawable/poster6" />
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:scaleType="center"
+            android:src="@drawable/poster7" />
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:scaleType="center"
+            android:src="@drawable/poster8" />
 
     </GridLayout>
 
