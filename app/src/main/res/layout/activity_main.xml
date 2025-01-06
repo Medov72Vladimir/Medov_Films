@@ -107,26 +107,34 @@
         app:layout_constraintTop_toBottomOf="@+id/text">
 
         <ImageView
+            android:id="@+id/ImageView5"
             android:layout_width="140dp"
             android:layout_height="140dp"
+            android:contentDescription="@string/image_view"
             android:scaleType="center"
             android:src="@drawable/poster5" />
 
         <ImageView
+            android:id="@+id/ImageView6"
             android:layout_width="140dp"
             android:layout_height="140dp"
+            android:contentDescription="@string/image_view"
             android:scaleType="center"
             android:src="@drawable/poster6" />
 
         <ImageView
+            android:id="@+id/ImageView7"
             android:layout_width="140dp"
             android:layout_height="140dp"
+            android:contentDescription="@string/image_view"
             android:scaleType="center"
             android:src="@drawable/poster7" />
 
         <ImageView
+            android:id="@+id/ImageView8"
             android:layout_width="140dp"
             android:layout_height="140dp"
+            android:contentDescription="@string/image_view"
             android:scaleType="center"
             android:src="@drawable/poster8" />
 
