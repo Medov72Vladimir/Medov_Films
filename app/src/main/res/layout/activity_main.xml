@@ -105,11 +105,13 @@
         app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/text">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/poster_5"
+            android:clickable="true"
+            android:focusable="true"
+            android:stateListAnimator="@animator/press_poster_animation"
             android:layout_width="140dp"
             android:layout_height="140dp"
             app:cardCornerRadius="15dp">
@@ -118,11 +120,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/poster5"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/image_view"/>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/poster_6"
+            android:clickable="true"
+            android:focusable="true"
+            android:stateListAnimator="@animator/press_poster_animation"
             android:layout_width="140dp"
             android:layout_height="140dp"
             app:cardCornerRadius="15dp">
@@ -131,11 +137,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/poster6"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/image_view"/>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/poster_7"
+            android:clickable="true"
+            android:focusable="true"
+            android:stateListAnimator="@animator/press_poster_animation"
             android:layout_width="140dp"
             android:layout_height="140dp"
             app:cardCornerRadius="15dp">
@@ -144,11 +154,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/poster7"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/image_view"/>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/poster_8"
+            android:clickable="true"
+            android:focusable="true"
+            android:stateListAnimator="@animator/press_poster_animation"
             android:layout_width="140dp"
             android:layout_height="140dp"
             app:cardCornerRadius="15dp">
@@ -157,7 +171,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/poster8"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/image_view"/>
         </androidx.cardview.widget.CardView>
 
     </GridLayout>
