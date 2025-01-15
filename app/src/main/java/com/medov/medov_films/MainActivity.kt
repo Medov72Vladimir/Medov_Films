@@ -28,11 +28,6 @@ class MainActivity : AppCompatActivity() {
 
         materialToolbar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.nightlight -> {
-                    switchTheme()
-                    true
-                }
-
                 R.id.settings -> {
                     val toast = Toast.makeText(this, "Настройки", Toast.LENGTH_SHORT)
                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
@@ -43,6 +38,16 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+        val filmsDataBase = listOf(
+            Film("Film title", R.drawable.poster1, "This should be a description"),
+            Film("Film title", R.drawable.poster2, "This should be a description"),
+            Film("Film title", R.drawable.poster3, "This should be a description"),
+            Film("Film title", R.drawable.poster4, "This should be a description"),
+            Film("Film title", R.drawable.poster5, "This should be a description"),
+            Film("Film title", R.drawable.poster6, "This should be a description"),
+            Film("Film title", R.drawable.poster7, "This should be a description"),
+            Film("Film title", R.drawable.poster8, "This should be a description")
+        )
 
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_bar)
         bottomNavigation.setOnItemSelectedListener {
@@ -73,17 +78,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-    }
-    fun switchTheme() {
-        val nightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-        if (nightMode == Configuration.UI_MODE_NIGHT_NO) {
-            // Переключаемся на ночную тему
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            // Переключаемся на дневную тему
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        }
-        recreate() // Перезапускаем активность для применения новой темы
     }
 
 }
