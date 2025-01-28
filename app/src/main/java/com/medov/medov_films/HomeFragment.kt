@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.medov.medov_films.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
+
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     private lateinit var binding: FragmentHomeBinding
     private val filmsDataBase = listOf(
