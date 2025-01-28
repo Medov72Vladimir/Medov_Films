@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import com.medov.medov_films.databinding.FragmentDetailsBinding
 
 class DetailsFragment : Fragment() {
-
     private lateinit var binding: FragmentDetailsBinding
 
     override fun onCreateView(
@@ -21,12 +20,14 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setFilmsDetails()
     }
 
     private fun setFilmsDetails() {
-
+        val film = arguments?.get("film") as Film
+        binding.detailsToolbar.title = film.title
+        binding.detailsPoster.setImageResource(film.poster)
+        binding.detailsDescription.text = film.description
 
     }
 }
