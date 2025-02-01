@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_bar)
         bottomNavigation.setOnItemSelectedListener {
-
             when (it.itemId) {
                 R.id.favorites -> {
                     val toast = Toast.makeText(this, "Избранное", Toast.LENGTH_SHORT)
@@ -52,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
     fun launchDetailsFragment(film: Film) {
         val bundle = Bundle()
         bundle.putParcelable("film", film)
