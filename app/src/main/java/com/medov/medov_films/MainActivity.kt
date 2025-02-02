@@ -26,9 +26,11 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.favorites -> {
-                    val toast = Toast.makeText(this, "Избранное", Toast.LENGTH_SHORT)
-                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
-                    toast.show()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_placeholder, FavoritesFragment())
+                        .addToBackStack(null)
+                        .commit()
                     true
                 }
 
