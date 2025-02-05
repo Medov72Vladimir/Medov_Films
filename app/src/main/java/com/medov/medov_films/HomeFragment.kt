@@ -84,5 +84,9 @@ class HomeFragment : Fragment() {
             addItemDecoration(decorator)
         }
         filmsAdapter.addItems(filmsDataBase)
+
+        binding.searchView.setOnClickListener {
+            binding.searchView.isIconified = false
+        }
     }
 }
