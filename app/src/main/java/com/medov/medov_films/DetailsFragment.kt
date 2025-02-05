@@ -33,6 +33,7 @@ class DetailsFragment : Fragment() {
             if (!film.isInFavorites) {
                 binding.detailsFabFavorites.setImageResource(R.drawable.favorite)
                 film.isInFavorites = true
+
             } else {
                 binding.detailsFabFavorites.setImageResource(R.drawable.favorite_24)
                 film.isInFavorites = false

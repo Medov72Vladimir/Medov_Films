@@ -12,6 +12,7 @@ import com.medov.medov_films.databinding.FragmentFavoritesBinding
 class FavoritesFragment : Fragment() {
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     private lateinit var binding: FragmentFavoritesBinding
+    val favoritesList: MutableList<Film> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,8 +24,12 @@ class FavoritesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val favoritesList: List<Film> = emptyList()
-
+        val favoritesList: MutableList<Film> = mutableListOf()
+        favoritesList.add( Film(
+            "ПРАВЕДНИК",
+            R.drawable.poster_1,
+            "Реальная история подвига советского партизана Николая Киселёва, которому удалось вывести за линию фронта более 200 евреев, спасая их от гитлеровцев. В 2005 году ему было присвоено звание Праведник народов мира. Об этих не самых известных событиях рассказывает пронзительная военная драма Сергея Урсуляка с Александром Яценко в главной роли."
+        ))
         binding.favoritesRecycler
             .apply {
                 filmsAdapter =
