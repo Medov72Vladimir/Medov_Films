@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.medov.medov_films.databinding.FragmentHomeBinding
+import java.util.Locale
+import androidx.appcompat.widget.SearchView
 
 class HomeFragment : Fragment() {
 
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
-    private lateinit var binding: FragmentHomeBinding
     private val filmsDataBase = listOf(
         Film(
             "ПРАВЕДНИК",
@@ -65,13 +67,43 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.myRecycler.apply {
+
+        val searchView: SearchView = view.findViewById(R.id.search_view)
+
+        searchView.setOnClickListener {
+            searchView.isIconified = false
+        }
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            //Этот метод отрабатывает при нажатии на виджет "поиск"
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+            //Этот метод отрабатывает на каждое изменение текста
+            override fun onQueryTextChange(newText: String): Boolean {
+                //Если ввод пуст то вставляем в адаптер всю БД
+                if (newText.isEmpty()) {
+                    filmsAdapter.addItems(filmsDataBase)
+                    return true
+                }
+                //Фильтруем список на поиск подходящих сочетаний
+                val result = filmsDataBase.filter {
+                    //Чтобы все работало правильно, нужно и запрос, и имя фильма приводить к нижнему регистру
+                    it.title.toLowerCase(Locale.getDefault()).contains(newText.toLowerCase(Locale.getDefault()))
+                }
+                //Добавляем в адаптер
+                filmsAdapter.addItems(result)
+                return true
+            }
+        })
+
+        val myRecycler = view.findViewById<RecyclerView>(R.id.my_recycler)
+        myRecycler.apply {
             filmsAdapter =
                 FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener {
                     override fun click(film: Film) {
@@ -84,9 +116,5 @@ class HomeFragment : Fragment() {
             addItemDecoration(decorator)
         }
         filmsAdapter.addItems(filmsDataBase)
-
-        binding.searchView.setOnClickListener {
-            binding.searchView.isIconified = false
-        }
     }
 }
