@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.medov.medov_films.databinding.FragmentHomeBinding
 import java.util.Locale
 import androidx.appcompat.widget.SearchView
 
