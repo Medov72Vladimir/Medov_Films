@@ -25,6 +25,12 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_bar)
         bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
+                R.id.home -> {
+                    val toast = Toast.makeText(this, "Главный экран", Toast.LENGTH_SHORT)
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
+                    toast.show()
+                    true
+                }
                 R.id.favorites -> {
                     supportFragmentManager
                         .beginTransaction()
