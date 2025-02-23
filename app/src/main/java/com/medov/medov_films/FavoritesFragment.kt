@@ -25,23 +25,5 @@ class FavoritesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val favoritesList: MutableList<Film> = mutableListOf()
 
-        binding.favoritesRecycler
-            .apply {
-                filmsAdapter =
-                    FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener {
-                        override fun click(film: Film) {
-                            (requireActivity() as MainActivity).launchDetailsFragment(film)
-                        }
-                    })
-
-                adapter = filmsAdapter
-
-                layoutManager = LinearLayoutManager(requireContext())
-
-                val decorator = TopSpacingItemDecoration(8)
-                addItemDecoration(decorator)
-            }
-
-        filmsAdapter.addItems(favoritesList)
     }
 }

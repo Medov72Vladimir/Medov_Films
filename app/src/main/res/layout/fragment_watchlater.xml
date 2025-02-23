@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/favorites_fragment_root"
+    android:id="@+id/watch_later_fragment_root"
     android:visibility="invisible"
     tools:visibility="visible"
-    android:background="@drawable/fon_favorite"
-    tools:context=".FavoritesFragment">
+    android:background="@drawable/fon_watch_later"
+    tools:context=".WatchLaterFragment">
 
 </FrameLayout>

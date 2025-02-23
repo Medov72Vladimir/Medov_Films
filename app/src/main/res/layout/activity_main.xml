@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/comer_main"
+    android:background="@drawable/fon_home"
     tools:context=".MainActivity">
 
     <FrameLayout

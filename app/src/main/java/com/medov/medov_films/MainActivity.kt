@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.medov.medov_films.databinding.ActivityMainBinding
 
@@ -26,31 +27,31 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
-                    val toast = Toast.makeText(this, "Главный экран", Toast.LENGTH_SHORT)
-                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
-                    toast.show()
+                    val tag = "home"
+                    val fragment = checkFragmentExistence(tag)
+                    //В первом параметре, если фрагмент не найден и метод вернул null, то с помощью
+                    //элвиса мы вызываем создание нового фрагмента
+                    changeFragment( fragment?: HomeFragment(), tag)
                     true
                 }
                 R.id.favorites -> {
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.fragment_placeholder, FavoritesFragment())
-                        .addToBackStack(null)
-                        .commit()
+                    val tag = "favorites"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment( fragment?: FavoritesFragment(), tag)
                     true
                 }
 
                 R.id.watch_later -> {
-                    val toast = Toast.makeText(this, "Посмотреть позже", Toast.LENGTH_SHORT)
-                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
-                    toast.show()
+                    val tag = "watch_later"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment( fragment?: WatchLaterFragment(), tag)
                     true
                 }
 
                 R.id.collections -> {
-                    val toast = Toast.makeText(this, "Подборки", Toast.LENGTH_SHORT)
-                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
-                    toast.show()
+                    val tag = "collections"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment( fragment?: CollectionsFragment(), tag)
                     true
                 }
 
@@ -72,6 +73,16 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
 
+    }
+
+    private fun checkFragmentExistence(tag: String): Fragment? = supportFragmentManager.findFragmentByTag(tag)
+
+    private fun changeFragment(fragment: Fragment, tag: String) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_placeholder, fragment, tag)
+            .addToBackStack(null)
+            .commit()
     }
 
 }
