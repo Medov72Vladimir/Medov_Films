@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.util.Locale
 import androidx.appcompat.widget.SearchView
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 
 class HomeFragment : Fragment() {
 
@@ -73,6 +74,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val searchView: SearchView = view.findViewById(R.id.search_view)
+        val homeFragmentRoot:CoordinatorLayout = view.findViewById(R.id.home_fragment_root)
 
         searchView.setOnClickListener {
             searchView.isIconified = false
@@ -115,5 +117,7 @@ class HomeFragment : Fragment() {
             addItemDecoration(decorator)
         }
         filmsAdapter.addItems(filmsDataBase)
+
+        AnimationHelper.performFragmentCircularRevealAnimation(homeFragmentRoot, requireActivity(), 1)
     }
 }

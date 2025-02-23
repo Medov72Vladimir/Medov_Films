@@ -5,25 +5,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.medov.medov_films.databinding.FragmentFavoritesBinding
 
 class FavoritesFragment : Fragment() {
-    private lateinit var filmsAdapter: FilmListRecyclerAdapter
-    private lateinit var binding: FragmentFavoritesBinding
-    val favoritesList: MutableList<Film> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentFavoritesBinding.inflate(inflater, container, false)
-        return binding.root
+        return inflater.inflate(R.layout.fragment_favorites, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val favoritesList: MutableList<Film> = mutableListOf()
+
+        val favoritesFragmentRoot:FrameLayout = view.findViewById(R.id.favorites_fragment_root)
+
+        AnimationHelper.performFragmentCircularRevealAnimation(favoritesFragmentRoot, requireActivity(), 2)
 
     }
 }
