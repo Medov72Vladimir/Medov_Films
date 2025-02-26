@@ -19,7 +19,11 @@ class CollectionsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val collectionsFragmentRoot: FrameLayout = view.findViewById(R.id.collections_fragment_root)
-        AnimationHelper.performFragmentCircularRevealAnimation(collectionsFragmentRoot, requireActivity(), 4)
+        AnimationHelper.performFragmentCircularRevealAnimation(
+            collectionsFragmentRoot,
+            requireActivity(),
+            4
+        )
     }
 
 }

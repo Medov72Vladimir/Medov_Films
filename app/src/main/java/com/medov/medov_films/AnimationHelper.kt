@@ -11,9 +11,9 @@ import kotlin.math.roundToInt
 object AnimationHelper {
     //Это переменная для того, чтобы круг проявления расходился именно от иконки меню навигации
     private const val menuItems = 4
+
     //В метод у нас приходит 3 параметра:
-    //1 - наше rootView, которое одновременно является и контейнером
-    //и объектом анимации
+    //1 - наше rootView, которое одновременно является и контейнером и объектом анимации
     //2 - активити для того, чтобы вернуть выполнение нового треда в UI поток
     //3 - позиция в меню навигации, чтобы круг проявления расходился именно от иконки меню навигации
     fun performFragmentCircularRevealAnimation(rootView: View, activity: Activity, position: Int) {
@@ -25,7 +25,7 @@ object AnimationHelper {
                 if (rootView.isAttachedToWindow) {
                     //Возвращаемся в главный тред, чтобы выполнить анимацию
                     activity.runOnUiThread {
-                        //Cуперсложная математика вычисления старта анимации
+                        //Вычисление старта анимации
                         val itemCenter = rootView.width / (menuItems * 2)
                         val step = (itemCenter * 2) * (position - 1) + itemCenter
 
@@ -35,7 +35,13 @@ object AnimationHelper {
                         val startRadius = 0
                         val endRadius = hypot(rootView.width.toDouble(), rootView.height.toDouble())
                         //Создаем саму анимацию
-                        ViewAnimationUtils.createCircularReveal(rootView, x, y, startRadius.toFloat(), endRadius.toFloat()).apply {
+                        ViewAnimationUtils.createCircularReveal(
+                            rootView,
+                            x,
+                            y,
+                            startRadius.toFloat(),
+                            endRadius.toFloat()
+                        ).apply {
                             //Устанавливаем время анимации
                             duration = 500
                             //Интерполятор для более естественной анимации

@@ -19,7 +19,11 @@ class WatchLaterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val watchLaterFragmentRoot: FrameLayout = view.findViewById(R.id.watch_later_fragment_root)
-        AnimationHelper.performFragmentCircularRevealAnimation(watchLaterFragmentRoot, requireActivity(), 3)
+        AnimationHelper.performFragmentCircularRevealAnimation(
+            watchLaterFragmentRoot,
+            requireActivity(),
+            3
+        )
     }
 
 }

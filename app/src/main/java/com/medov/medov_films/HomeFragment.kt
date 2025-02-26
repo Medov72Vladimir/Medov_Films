@@ -74,17 +74,18 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val searchView: SearchView = view.findViewById(R.id.search_view)
-        val homeFragmentRoot:CoordinatorLayout = view.findViewById(R.id.home_fragment_root)
+        val homeFragmentRoot: CoordinatorLayout = view.findViewById(R.id.home_fragment_root)
 
         searchView.setOnClickListener {
             searchView.isIconified = false
         }
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             //Этот метод отрабатывает при нажатии на виджет "поиск"
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
             }
+
             //Этот метод отрабатывает на каждое изменение текста
             override fun onQueryTextChange(newText: String): Boolean {
                 //Если ввод пуст то вставляем в адаптер всю БД
@@ -95,7 +96,8 @@ class HomeFragment : Fragment() {
                 //Фильтруем список на поиск подходящих сочетаний
                 val result = filmsDataBase.filter {
                     //Чтобы все работало правильно, нужно и запрос, и имя фильма приводить к нижнему регистру
-                    it.title.toLowerCase(Locale.getDefault()).contains(newText.toLowerCase(Locale.getDefault()))
+                    it.title.toLowerCase(Locale.getDefault())
+                        .contains(newText.toLowerCase(Locale.getDefault()))
                 }
                 //Добавляем в адаптер
                 filmsAdapter.addItems(result)
@@ -118,6 +120,10 @@ class HomeFragment : Fragment() {
         }
         filmsAdapter.addItems(filmsDataBase)
 
-        AnimationHelper.performFragmentCircularRevealAnimation(homeFragmentRoot, requireActivity(), 1)
+        AnimationHelper.performFragmentCircularRevealAnimation(
+            homeFragmentRoot,
+            requireActivity(),
+            1
+        )
     }
 }

@@ -1,8 +1,6 @@
 package com.medov.medov_films
 
 import android.os.Bundle
-import android.view.Gravity
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -31,27 +29,28 @@ class MainActivity : AppCompatActivity() {
                     val fragment = checkFragmentExistence(tag)
                     //В первом параметре, если фрагмент не найден и метод вернул null, то с помощью
                     //элвиса мы вызываем создание нового фрагмента
-                    changeFragment( fragment?: HomeFragment(), tag)
+                    changeFragment(fragment ?: HomeFragment(), tag)
                     true
                 }
+
                 R.id.favorites -> {
                     val tag = "favorites"
                     val fragment = checkFragmentExistence(tag)
-                    changeFragment( fragment?: FavoritesFragment(), tag)
+                    changeFragment(fragment ?: FavoritesFragment(), tag)
                     true
                 }
 
                 R.id.watch_later -> {
                     val tag = "watch_later"
                     val fragment = checkFragmentExistence(tag)
-                    changeFragment( fragment?: WatchLaterFragment(), tag)
+                    changeFragment(fragment ?: WatchLaterFragment(), tag)
                     true
                 }
 
                 R.id.collections -> {
                     val tag = "collections"
                     val fragment = checkFragmentExistence(tag)
-                    changeFragment( fragment?: CollectionsFragment(), tag)
+                    changeFragment(fragment ?: CollectionsFragment(), tag)
                     true
                 }
 
@@ -75,7 +74,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun checkFragmentExistence(tag: String): Fragment? = supportFragmentManager.findFragmentByTag(tag)
+    private fun checkFragmentExistence(tag: String): Fragment? =
+        supportFragmentManager.findFragmentByTag(tag)
 
     private fun changeFragment(fragment: Fragment, tag: String) {
         supportFragmentManager

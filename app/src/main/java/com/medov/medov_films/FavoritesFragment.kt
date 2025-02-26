@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.medov.medov_films.databinding.FragmentFavoritesBinding
 
 class FavoritesFragment : Fragment() {
 
@@ -21,9 +19,13 @@ class FavoritesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val favoritesFragmentRoot:FrameLayout = view.findViewById(R.id.favorites_fragment_root)
+        val favoritesFragmentRoot: FrameLayout = view.findViewById(R.id.favorites_fragment_root)
 
-        AnimationHelper.performFragmentCircularRevealAnimation(favoritesFragmentRoot, requireActivity(), 2)
+        AnimationHelper.performFragmentCircularRevealAnimation(
+            favoritesFragmentRoot,
+            requireActivity(),
+            2
+        )
 
     }
 }
