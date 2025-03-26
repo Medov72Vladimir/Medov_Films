@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-parcelize")
+    id("kotlin-kapt")
 }
 
 android {
@@ -36,6 +37,8 @@ android {
     }
     buildFeatures{
         viewBinding = true
+        //noinspection DataBindingWithoutKapt
+        dataBinding = true
     }
 
 }

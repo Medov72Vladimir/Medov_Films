@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import com.medov.medov_films.databinding.FragmentCollectionsBinding
+import com.medov.medov_films.databinding.FragmentWatchlaterBinding
 
 class CollectionsFragment : Fragment() {
 
@@ -13,7 +15,8 @@ class CollectionsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_collections, container, false)
+        val binding = FragmentCollectionsBinding.inflate(inflater, container, false)
+        return binding.collectionsFragmentRoot
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

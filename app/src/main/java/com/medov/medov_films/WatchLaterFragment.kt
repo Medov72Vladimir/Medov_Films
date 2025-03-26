@@ -6,14 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import com.medov.medov_films.databinding.FragmentWatchlaterBinding
 
 class WatchLaterFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_watchlater, container, false)
+    ): View {
+        val binding = FragmentWatchlaterBinding.inflate(inflater, container, false)
+        return binding.watchLaterFragmentRoot
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

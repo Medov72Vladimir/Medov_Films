@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.medov.medov_films.databinding.FragmentFavoritesBinding
+import com.medov.medov_films.databinding.FragmentWatchlaterBinding
 
 class FavoritesFragment : Fragment() {
 
@@ -15,7 +16,8 @@ class FavoritesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_favorites, container, false)
+        val binding = FragmentFavoritesBinding.inflate(inflater, container, false)
+        return binding.favoritesFragmentRoot
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

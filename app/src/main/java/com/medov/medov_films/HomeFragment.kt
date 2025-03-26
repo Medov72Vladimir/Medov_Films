@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import java.util.Locale
 import androidx.appcompat.widget.SearchView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import com.medov.medov_films.databinding.FragmentHomeBinding
+import com.medov.medov_films.databinding.FragmentWatchlaterBinding
 
 class HomeFragment : Fragment() {
 
@@ -67,7 +69,8 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.homeFragmentRoot
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
