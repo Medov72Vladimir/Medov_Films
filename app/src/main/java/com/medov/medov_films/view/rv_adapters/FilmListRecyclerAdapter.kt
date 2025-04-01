@@ -1,4 +1,4 @@
-package com.medov.medov_films
+package com.medov.medov_films.view.rv_adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.medov.medov_films.R
+import com.medov.medov_films.domain.Film
+import com.medov.medov_films.RatingDonutView
 
 class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {

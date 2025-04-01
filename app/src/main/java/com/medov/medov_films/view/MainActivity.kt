@@ -1,10 +1,17 @@
-package com.medov.medov_films
+package com.medov.medov_films.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.medov.medov_films.view.fragments.CollectionsFragment
+import com.medov.medov_films.view.fragments.DetailsFragment
+import com.medov.medov_films.view.fragments.FavoritesFragment
+import com.medov.medov_films.view.fragments.HomeFragment
+import com.medov.medov_films.R
+import com.medov.medov_films.view.fragments.WatchLaterFragment
 import com.medov.medov_films.databinding.ActivityMainBinding
+import com.medov.medov_films.domain.Film
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.medov.medov_films
+package com.medov.medov_films.domain
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

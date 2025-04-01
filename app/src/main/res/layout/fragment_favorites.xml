@@ -7,6 +7,6 @@
     android:visibility="invisible"
     tools:visibility="visible"
     android:background="@drawable/fon_favorite"
-    tools:context=".FavoritesFragment">
+    tools:context=".view.fragments.FavoritesFragment">
 
 </FrameLayout>

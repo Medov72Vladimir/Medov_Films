@@ -1,4 +1,4 @@
-package com.medov.medov_films
+package com.medov.medov_films.view.rv_adapters
 
 import android.content.res.Resources
 import android.graphics.Rect
