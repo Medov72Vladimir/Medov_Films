@@ -10,7 +10,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@drawable/fon_home"
-    tools:context=".HomeFragment">
+    tools:context=".view.fragments.HomeFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

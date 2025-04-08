@@ -1,4 +1,4 @@
-package com.medov.medov_films
+package com.medov.medov_films.utils
 
 import android.app.Activity
 import android.view.View

@@ -1,22 +1,10 @@
-package com.medov.medov_films
+package com.medov.medov_films.data
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import java.util.Locale
-import androidx.appcompat.widget.SearchView
-import androidx.coordinatorlayout.widget.CoordinatorLayout
-import com.medov.medov_films.databinding.FragmentHomeBinding
-import com.medov.medov_films.databinding.FragmentWatchlaterBinding
+import com.medov.medov_films.R
+import com.medov.medov_films.domain.Film
 
-class HomeFragment : Fragment() {
-
-    private lateinit var filmsAdapter: FilmListRecyclerAdapter
-    private val filmsDataBase = listOf(
+class MainRepository {
+    val filmsDataBase = listOf(
         Film(
             "ПРАВЕДНИК",
             R.drawable.poster_1,
@@ -64,63 +52,4 @@ class HomeFragment : Fragment() {
             "Концентрационный лагерь Собибор действовал на юго-востоке Польши полтора года, и за это время здесь было убито около 250 тысяч евреев. Осенью 1943-го в лагерь смерти доставляют группу советских военнопленных, среди которых оказывается и лейтенант Александр Аронович Печерский. В первые же дни он присоединяется к местной подпольной группе, готовящей массовый побег. Военный опыт и личные качества Печерского позволяют ему возглавить лагерное сопротивление. Всего за несколько недель он и его соратники успешно организуют беспрецедентное восстание, в результате которого сотни узников получают возможность вырваться из рук нацистских палачей.", 6.2F
         )
     )
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        val binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.homeFragmentRoot
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val searchView: SearchView = view.findViewById(R.id.search_view)
-        val homeFragmentRoot:CoordinatorLayout = view.findViewById(R.id.home_fragment_root)
-
-        searchView.setOnClickListener {
-            searchView.isIconified = false
-        }
-
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            //Этот метод отрабатывает при нажатии на виджет "поиск"
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return true
-            }
-            //Этот метод отрабатывает на каждое изменение текста
-            override fun onQueryTextChange(newText: String): Boolean {
-                //Если ввод пуст то вставляем в адаптер всю БД
-                if (newText.isEmpty()) {
-                    filmsAdapter.addItems(filmsDataBase)
-                    return true
-                }
-                //Фильтруем список на поиск подходящих сочетаний
-                val result = filmsDataBase.filter {
-                    //Чтобы все работало правильно, нужно и запрос, и имя фильма приводить к нижнему регистру
-                    it.title.toLowerCase(Locale.getDefault()).contains(newText.toLowerCase(Locale.getDefault()))
-                }
-                //Добавляем в адаптер
-                filmsAdapter.addItems(result)
-                return true
-            }
-        })
-
-        val myRecycler = view.findViewById<RecyclerView>(R.id.my_recycler)
-        myRecycler.apply {
-            filmsAdapter =
-                FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener {
-                    override fun click(film: Film) {
-                        (requireActivity() as MainActivity).launchDetailsFragment(film)
-                    }
-                })
-            adapter = filmsAdapter
-            layoutManager = LinearLayoutManager(requireContext())
-            val decorator = TopSpacingItemDecoration(8)
-            addItemDecoration(decorator)
-        }
-        filmsAdapter.addItems(filmsDataBase)
-
-        AnimationHelper.performFragmentCircularRevealAnimation(homeFragmentRoot, requireActivity(), 1)
-    }
 }

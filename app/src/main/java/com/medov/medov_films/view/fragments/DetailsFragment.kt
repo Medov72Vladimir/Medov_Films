@@ -1,4 +1,4 @@
-package com.medov.medov_films
+package com.medov.medov_films.view.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.medov.medov_films.R
 import com.medov.medov_films.databinding.FragmentDetailsBinding
+import com.medov.medov_films.domain.Film
 
 class DetailsFragment : Fragment() {
     private lateinit var binding: FragmentDetailsBinding
