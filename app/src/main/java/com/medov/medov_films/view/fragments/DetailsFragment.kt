@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.medov.medov_films.R
+import com.medov.medov_films.data.ApiConstants
 import com.medov.medov_films.databinding.FragmentDetailsBinding
 import com.medov.medov_films.domain.Film
 
@@ -57,7 +59,10 @@ class DetailsFragment : Fragment() {
     private fun setFilmsDetails() {
         film = arguments?.get("film") as Film
         binding.detailsToolbar.title = film.title
-        binding.detailsPoster.setImageResource(film.poster)
+        Glide.with(this)
+            .load(ApiConstants.IMAGES_URL + "w780" + film.poster)
+            .centerCrop()
+            .into(binding.detailsPoster)
         binding.detailsDescription.text = film.description
 
     }
