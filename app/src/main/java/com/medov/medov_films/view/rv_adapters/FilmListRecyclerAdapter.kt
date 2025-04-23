@@ -7,9 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.medov.medov_films.R
 import com.medov.medov_films.domain.Film
 import com.medov.medov_films.RatingDonutView
+import com.medov.medov_films.data.ApiConstants
 
 class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -52,7 +54,13 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) :
 
         fun bind(film: Film) {
             title.text = film.title
-            poster.setImageResource(film.poster)
+            Glide.with(itemView)
+                //Загружаем сам ресурс
+                .load(ApiConstants.IMAGES_URL + "w342" + film.poster)
+                //Центруем изображение
+                .centerCrop()
+                //Указываем ImageView, куда будем загружать изображение
+                .into(poster)
             description.text = film.description
             ratingDonut.setProgress((film.rating * 10).toInt())
         }
