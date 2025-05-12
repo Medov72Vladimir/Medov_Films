@@ -16,6 +16,7 @@ loggingInterceptor = "3.12.6"
 glide = "4.11.0"
 compiler = "4.11.0"
 
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -31,8 +32,6 @@ converter-gson = {group = "com.squareup.retrofit2", name = "converter-gson", ver
 logging-interceptor = {group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor"}
 glide = {group = "com.github.bumptech.glide", name = "glide", version.ref = "glide"}
 compiler = {group = "com.github.bumptech.glide", name = "compiler", version.ref = "compiler"}
-
-
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
