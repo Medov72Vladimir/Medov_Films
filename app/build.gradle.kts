@@ -29,13 +29,12 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "11"
+
         jvmTarget = "1.8"
     }
     buildFeatures{
@@ -59,15 +58,19 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    //Glide
     implementation(libs.glide)
     annotationProcessor(libs.compiler)
 
+    //Retrofit
     implementation(libs.okhttp)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
 
+    //Dagger
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
+
 
 }
