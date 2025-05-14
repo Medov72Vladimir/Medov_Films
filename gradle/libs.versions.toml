@@ -1,5 +1,7 @@
 [versions]
 agp = "8.7.3"
+dagger = "2.28.3"
+daggerCompiler = "2.28"
 kotlin = "1.9.24"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -16,8 +18,11 @@ loggingInterceptor = "3.12.6"
 glide = "4.11.0"
 compiler = "4.11.0"
 
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "daggerCompiler" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -31,7 +36,6 @@ converter-gson = {group = "com.squareup.retrofit2", name = "converter-gson", ver
 logging-interceptor = {group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor"}
 glide = {group = "com.github.bumptech.glide", name = "glide", version.ref = "glide"}
 compiler = {group = "com.github.bumptech.glide", name = "compiler", version.ref = "compiler"}
-
 
 
 [plugins]
