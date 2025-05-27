@@ -12,6 +12,7 @@ import com.medov.medov_films.R
 import com.medov.medov_films.view.fragments.WatchLaterFragment
 import com.medov.medov_films.databinding.ActivityMainBinding
 import com.medov.medov_films.domain.Film
+import com.medov.medov_films.view.fragments.SettingsFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -57,6 +58,13 @@ class MainActivity : AppCompatActivity() {
                     val tag = "collections"
                     val fragment = checkFragmentExistence(tag)
                     changeFragment( fragment?: CollectionsFragment(), tag)
+                    true
+                }
+
+                R.id.settings -> {
+                    val tag = "settings"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment( fragment?: SettingsFragment(), tag)
                     true
                 }
 

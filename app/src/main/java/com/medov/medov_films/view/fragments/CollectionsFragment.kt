@@ -11,19 +11,19 @@ import com.medov.medov_films.databinding.FragmentCollectionsBinding
 import com.medov.medov_films.utils.AnimationHelper
 
 class CollectionsFragment : Fragment() {
+    private lateinit var binding: FragmentCollectionsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentCollectionsBinding.inflate(inflater, container, false)
-        return binding.collectionsFragmentRoot
+        binding = FragmentCollectionsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val collectionsFragmentRoot: FrameLayout = view.findViewById(R.id.collections_fragment_root)
-        AnimationHelper.performFragmentCircularRevealAnimation(collectionsFragmentRoot, requireActivity(), 4)
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.collectionsFragmentRoot, requireActivity(), 4)
     }
 
 }

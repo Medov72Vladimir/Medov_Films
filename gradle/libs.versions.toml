@@ -17,6 +17,7 @@ glide = "4.11.0"
 compiler = "4.11.0"
 dagger = "2.48"
 daggerCompiler = "2.48"
+swiperefreshlayout = "1.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,8 +35,10 @@ logging-interceptor = {group = "com.squareup.okhttp3", name = "logging-intercept
 glide = {group = "com.github.bumptech.glide", name = "glide", version.ref = "glide"}
 compiler = {group = "com.github.bumptech.glide", name = "compiler", version.ref = "compiler"}
 
-dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
-dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "daggerCompiler" }
+dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" }
+dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "daggerCompiler" }
+
+androidx-swiperefreshlayout = {group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

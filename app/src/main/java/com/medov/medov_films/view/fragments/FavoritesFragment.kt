@@ -7,25 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.medov.medov_films.R
+import com.medov.medov_films.databinding.FragmentCollectionsBinding
 import com.medov.medov_films.databinding.FragmentFavoritesBinding
 import com.medov.medov_films.utils.AnimationHelper
 
 class FavoritesFragment : Fragment() {
+    private lateinit var binding: FragmentFavoritesBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentFavoritesBinding.inflate(inflater, container, false)
-        return binding.favoritesFragmentRoot
+        binding = FragmentFavoritesBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val favoritesFragmentRoot:FrameLayout = view.findViewById(R.id.favorites_fragment_root)
-
-        AnimationHelper.performFragmentCircularRevealAnimation(favoritesFragmentRoot, requireActivity(), 2)
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.favoritesFragmentRoot, requireActivity(), 2)
 
     }
 }

@@ -22,6 +22,9 @@ import com.medov.medov_films.viewmodel.HomeFragmentViewModel
 import java.util.Locale
 
 class HomeFragment : Fragment() {
+    private val myRecycler = view?.findViewById<RecyclerView>(R.id.my_recycler)
+    private val searchView: SearchView? = view?.findViewById(R.id.search_view)
+    private lateinit var binding: FragmentHomeBinding
 
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
 
@@ -40,66 +43,98 @@ class HomeFragment : Fragment() {
             filmsAdapter.addItems(field)
         }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        retainInstance = true
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.homeFragmentRoot
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot, requireActivity(), 1)
 
-        val searchView: SearchView = view.findViewById(R.id.search_view)
-        val homeFragmentRoot:CoordinatorLayout = view.findViewById(R.id.home_fragment_root)
+        initSearchView()
+        initPullToRefresh()
+        //находим наш RV
+        initRecyckler()
+        //Кладем нашу БД в RV
+        viewModel.filmsListLiveData.observe(viewLifecycleOwner, Observer<List<Film>> {
+            filmsDataBase = it
+            filmsAdapter.addItems(it)
+        })
+    }
+    private fun initPullToRefresh() {
+        //Вешаем слушатель, чтобы вызвался pull to refresh
+        binding.pullToRefresh.setOnRefreshListener {
+                //Чистим адаптер(items нужно будет сделать паблик или создать для этого публичный метод)
+                filmsAdapter.items.clear()
+                //Делаем новый запрос фильмов на сервер
+                viewModel.getFilms()
+                //Убираем крутящиеся колечко
+                binding.pullToRefresh.isRefreshing = false
+            }
+    }
 
-        searchView.setOnClickListener {
+
+    fun initSearchView() {
+        searchView?.setOnClickListener {
             searchView.isIconified = false
         }
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            //Этот метод отрабатывает при нажатии на виджет "поиск"
+        //Подключаем слушателя изменений введенного текста в поиска
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            //Этот метод отрабатывает при нажатии кнопки "поиск" на софт клавиатуре
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
             }
-            //Этот метод отрабатывает на каждое изменение текста
+
+            //Этот метод отрабатывает на каждое изменения текста
             override fun onQueryTextChange(newText: String): Boolean {
                 //Если ввод пуст то вставляем в адаптер всю БД
                 if (newText.isEmpty()) {
                     filmsAdapter.addItems(filmsDataBase)
                     return true
                 }
-                //Фильтруем список на поиск подходящих сочетаний
+                //Фильтруем список на поискк подходящих сочетаний
                 val result = filmsDataBase.filter {
-                    //Чтобы все работало правильно, нужно и запрос, и имя фильма приводить к нижнему регистру
-                    it.title.toLowerCase(Locale.getDefault()).contains(newText.toLowerCase(Locale.getDefault()))
+                    //Чтобы все работало правильно, нужно и запроси и имя фильма приводить к нижнему регистру
+                    it.title.toLowerCase(Locale.getDefault())
+                        .contains(newText.toLowerCase(Locale.getDefault()))
                 }
                 //Добавляем в адаптер
                 filmsAdapter.addItems(result)
                 return true
             }
         })
+    }
 
-        val myRecycler = view.findViewById<RecyclerView>(R.id.my_recycler)
-        myRecycler.apply {
+
+    fun initRecyckler() {
+        myRecycler?.apply {
             filmsAdapter =
                 FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener {
                     override fun click(film: Film) {
                         (requireActivity() as MainActivity).launchDetailsFragment(film)
                     }
                 })
+            //Присваиваем адаптер
             adapter = filmsAdapter
+            //Присвои layoutmanager
             layoutManager = LinearLayoutManager(requireContext())
+            //Применяем декоратор для отступов
             val decorator = TopSpacingItemDecoration(8)
             addItemDecoration(decorator)
         }
-        filmsAdapter.addItems(filmsDataBase)
-
-        AnimationHelper.performFragmentCircularRevealAnimation(homeFragmentRoot, requireActivity(), 1)
-
-        viewModel.filmsListLiveData.observe(viewLifecycleOwner, Observer<List<Film>> {
-            filmsDataBase = it
-        })
     }
+
 }
+
+
