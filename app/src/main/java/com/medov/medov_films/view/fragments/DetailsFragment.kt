@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.medov.medov_films.R
 import com.medov.medov_films.data.ApiConstants
 import com.medov.medov_films.databinding.FragmentDetailsBinding
-import com.medov.medov_films.domain.Film
+import com.medov.medov_films.data.Entity.Film
 
 class DetailsFragment : Fragment() {
     private lateinit var binding: FragmentDetailsBinding

@@ -71,5 +71,7 @@ dependencies {
 
     implementation(libs.androidx.swiperefreshlayout)
 
-
+    //Room
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
 }

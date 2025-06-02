@@ -11,7 +11,7 @@ import com.medov.medov_films.view.fragments.HomeFragment
 import com.medov.medov_films.R
 import com.medov.medov_films.view.fragments.WatchLaterFragment
 import com.medov.medov_films.databinding.ActivityMainBinding
-import com.medov.medov_films.domain.Film
+import com.medov.medov_films.data.Entity.Film
 import com.medov.medov_films.view.fragments.SettingsFragment
 
 class MainActivity : AppCompatActivity() {

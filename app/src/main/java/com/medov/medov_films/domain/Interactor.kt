@@ -2,6 +2,7 @@ package com.medov.medov_films.domain
 
 
 import com.medov.medov_films.API
+import com.medov.medov_films.data.Entity.Film
 import com.medov.medov_films.data.Entity.TmdbResultsDto
 import com.medov.medov_films.data.MainRepository
 import com.medov.medov_films.data.PreferenceProvider
@@ -21,7 +22,7 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
                 val list = Converter.convertApiListToDtoList(response.body()?.tmdbFilms)
                 //Кладем фильмы в бд
                 list.forEach {
-                    repo.putToDb(film = it)
+                    repo.putToDb(list)
                 }
                 callback.onSuccess(list)
             }

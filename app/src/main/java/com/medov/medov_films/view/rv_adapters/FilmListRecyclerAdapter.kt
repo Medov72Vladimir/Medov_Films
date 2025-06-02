@@ -9,7 +9,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.medov.medov_films.R
-import com.medov.medov_films.domain.Film
+import com.medov.medov_films.data.Entity.Film
 import com.medov.medov_films.RatingDonutView
 import com.medov.medov_films.data.ApiConstants
 
