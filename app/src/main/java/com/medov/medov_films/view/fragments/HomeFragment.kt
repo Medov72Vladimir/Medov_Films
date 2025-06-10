@@ -25,13 +25,10 @@ class HomeFragment : Fragment() {
     private val myRecycler = view?.findViewById<RecyclerView>(R.id.my_recycler)
     private val searchView: SearchView? = view?.findViewById(R.id.search_view)
     private lateinit var binding: FragmentHomeBinding
-
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
-
     private val viewModel by lazy {
         ViewModelProvider.NewInstanceFactory().create(HomeFragmentViewModel::class.java)
     }
-
     private var filmsDataBase = listOf<Film>()
         //Используем backing field
         set(value) {
@@ -42,12 +39,10 @@ class HomeFragment : Fragment() {
             //Обновляем RV адаптер
             filmsAdapter.addItems(field)
         }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,8 +50,6 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot, requireActivity(), 1)
@@ -85,8 +78,6 @@ class HomeFragment : Fragment() {
                 binding.pullToRefresh.isRefreshing = false
             }
     }
-
-
     fun initSearchView() {
         searchView?.setOnClickListener {
             searchView.isIconified = false
@@ -118,8 +109,6 @@ class HomeFragment : Fragment() {
             }
         })
     }
-
-
     fun initRecyckler() {
         myRecycler?.apply {
             filmsAdapter =
@@ -137,7 +126,6 @@ class HomeFragment : Fragment() {
             addItemDecoration(decorator)
         }
     }
-
 }
 
 
