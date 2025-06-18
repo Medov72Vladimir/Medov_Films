@@ -37,8 +37,6 @@ android {
     }
     buildFeatures{
         viewBinding = true
-        //noinspection DataBindingWithoutKapt
-        dataBinding = true
         buildConfig = true
     }
 
@@ -53,6 +51,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.espresso.core)
     implementation(libs.firebase.firestore.ktx)
+    implementation(libs.androidx.fragment.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -68,10 +67,16 @@ dependencies {
     //Dagger
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
+    kapt(libs.dagger.android.processor)
+
 
     implementation(libs.androidx.swiperefreshlayout)
 
     //Room
     implementation(libs.androidx.room.runtime)
     kapt(libs.androidx.room.compiler)
+
+    //Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
 }
