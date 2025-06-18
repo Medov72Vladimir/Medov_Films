@@ -2,7 +2,6 @@ package com.medov.medov_films
 
 import android.app.Application
 import com.medov.medov_films.di.AppComponent
-import com.medov.medov_films.di.DaggerAppComponent
 import com.medov.medov_films.di.modules.DatabaseModule
 import com.medov.medov_films.di.modules.DomainModule
 import com.medov.medov_films.di.modules.RemoteModule
