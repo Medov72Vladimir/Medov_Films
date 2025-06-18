@@ -20,8 +20,8 @@ daggerCompiler = "2.48"
 daggerAndroidProcessor = "2.20"
 swiperefreshlayout = "1.1.0"
 firebaseFirestoreKtx = "25.1.4"
-roomVersion = "2.7.1"
-coroutinesCore = "1.4.2"
+roomVersion = "2.7.2"
+coroutinesCore = "1.7.3"
 coroutinesAndroid = "1.7.3"
 fragmentKtx = "1.8.8"
 
@@ -48,8 +48,9 @@ dagger-android-processor = { group = "com.google.dagger", name = "dagger-android
 androidx-swiperefreshlayout = {group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout"}
 firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 
-androidx-room-runtime = {group = "androidx.room", name = "room-runtime", version.ref = "roomVersion"}
-androidx-room-compiler = {group = "androidx.room", name = "room-compiler", version.ref = "roomVersion"}
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomVersion"}
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion"}
 
 kotlinx-coroutines-core = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutinesCore"}
 kotlinx-coroutines-android = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutinesAndroid"}
